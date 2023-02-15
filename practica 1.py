@@ -59,13 +59,14 @@ def formatoHexadecimalIP(ip):
 
 
 def convertirDatos(linea):
-    #Conversion a decimal de la ipv6
     registros = separarRegistros(linea, ",")
+    #Comprobacion de formato
     if len(registros) != 6:
         cambiaColor(colorRojo)
         print("Se encontró un formato erroneo")
         cambiaColor(colorBlanco)
         return;
+    #Conversion a decimal de la ipv6
     salida = registros.copy()
     salida[0] = corregirIPv6(salida[0])
     ipv6vals = separarRegistros(salida[0], ":")
